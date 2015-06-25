@@ -14,5 +14,7 @@ set cpo&vim
 command! -bar -range=1 Incopen
 \ call incopen#open(expand('%:p'), <count>)
 
+nnoremap <silent> <Plug>(incopen) :<C-u>Incopen<CR>
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
