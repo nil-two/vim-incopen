@@ -39,14 +39,21 @@ function! incopen#increment(expr, count)
   return headzero . newnum
 endfunction
 
-
 function! incopen#decrement(expr, count)
   let headzero = matchstr(a:expr, '^0*')
-  let num = a:expr[matchend(a:expr, '^0*') :]
-  if (num - a:count) < 0
-    return headzero . a:count
+  let lenhead  = strlen(headzero)
+
+  let orinum = a:expr[matchend(a:expr, '^0*') :] + 0
+  let newnum = orinum - a:count
+  if newnum < 0
+    let newnum = 0
   endif
-  return headzero . (num - a:count)
+  let lendiff = strlen(string(orinum)) - strlen(string(newnum))
+
+  if lenhead > 0 && lendiff > 0
+    let headzero = headzero . repeat('0', lendiff)
+  endif
+  return headzero . newnum
 endfunction
 
 function! incopen#genpath(fpath, count, calcfunc)
