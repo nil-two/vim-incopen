@@ -56,5 +56,10 @@ function! incopen#incopen(fpath, count)
   execute 'edit ' . nextpath
 endfunction
 
+function! incopen#decopen(fpath, count)
+  let nextpath = incopen#genpath(a:fpath, a:count, function('incopen#decrement'))
+  execute 'edit ' . nextpath
+endfunction
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
