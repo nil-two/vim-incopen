@@ -23,7 +23,7 @@ function! s:lastmatch(expr, pat)
   return head
 endfunction
 
-function! s:increment(expr, count)
+function! incopen#increment(expr, count)
   let headzero = matchstr(a:expr, '^0*')
   let num = a:expr[matchend(a:expr, '^0*') :]
   return headzero . (num + a:count)
@@ -43,7 +43,7 @@ function! incopen#genpath(fpath, count, calcfunc)
 endfunction
 
 function! incopen#incopen(fpath, count)
-  let nextpath = incopen#genpath(a:fpath, a:count, function('s:increment'))
+  let nextpath = incopen#genpath(a:fpath, a:count, function('incopen#increment'))
   execute 'edit ' . nextpath
 endfunction
 
