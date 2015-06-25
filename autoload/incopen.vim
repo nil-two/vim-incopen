@@ -42,7 +42,7 @@ function! incopen#genpath(fpath, count, calcfunc)
   return lhs . a:calcfunc(expr, a:count) . rhs
 endfunction
 
-function! incopen#open(fpath, count)
+function! incopen#incopen(fpath, count)
   let nextpath = incopen#genpath(a:fpath, a:count, function('s:increment'))
   execute 'edit ' . nextpath
 endfunction
