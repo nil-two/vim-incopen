@@ -10,17 +10,17 @@ function! s:lastmatch(expr, pat)
   if a:expr !~# a:pat
     return -1
   endif
-  let match    = match(a:expr, a:pat)
-  let matchend = matchend(a:expr, a:pat)
+  let head = match(a:expr, a:pat)
+  let tail = matchend(a:expr, a:pat)
   while 1
-    let nextmatch = match(a:expr, a:pat, matchend+1)
-    if nextmatch == -1
+    let nexthead = match(a:expr, a:pat, tail+1)
+    if nexthead == -1
       break
     endif
-    let match    = nextmatch
-    let matchend = matchend(a:expr, a:pat, matchend+1)
+    let head = nexthead
+    let tail = matchend(a:expr, a:pat, tail+1)
   endwhile
-  return match
+  return head
 endfunction
 
 function! s:increment(expr, count)
@@ -33,13 +33,13 @@ function! incopen#genpath(fpath, count, calcfunc)
   if a:fpath !~# '\d\+'
     return a:fpath
   endif
-  let lastmatch    = s:lastmatch(a:fpath, '\d\+')
-  let lastmatchend = matchend(a:fpath, '\d\+', lastmatch)
+  let head = s:lastmatch(a:fpath, '\d\+')
+  let tail = matchend(a:fpath, '\d\+', head)
 
-  let left  = a:fpath[: lastmatch - 1]
-  let expr  = a:fpath[lastmatch : lastmatchend - 1]
-  let right = a:fpath[lastmatchend :]
-  return left . a:calcfunc(expr, a:count) . right
+  let lhs  = a:fpath[: head - 1]
+  let expr = a:fpath[head : tail - 1]
+  let rhs  = a:fpath[tail :]
+  return lhs . a:calcfunc(expr, a:count) . rhs
 endfunction
 
 function! incopen#open(fpath, count)
