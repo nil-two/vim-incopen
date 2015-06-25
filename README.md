@@ -1,7 +1,7 @@
 incopen
 =======
 
-Open incremented the current path.
+Open the incremented current path.
 
 It's inspired by
 [vimperator](https://addons.mozilla.org/ja/firefox/addon/vimperator/)'s
