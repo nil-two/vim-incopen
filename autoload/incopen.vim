@@ -29,6 +29,15 @@ function! incopen#increment(expr, count)
   return headzero . (num + a:count)
 endfunction
 
+function! incopen#decrement(expr, count)
+  let headzero = matchstr(a:expr, '^0*')
+  let num = a:expr[matchend(a:expr, '^0*') :]
+  if (num - a:count) < 0
+    return headzero . a:count
+  endif
+  return headzero . (num - a:count)
+endfunction
+
 function! incopen#genpath(fpath, count, calcfunc)
   if a:fpath !~# '\d\+'
     return a:fpath
