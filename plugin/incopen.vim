@@ -13,6 +13,8 @@ set cpo&vim
 
 command! -bar -range=1 Incopen
 \ call incopen#incopen(expand('%:p'), <count>)
+command! -bar -range=1 Decopen
+\ call incopen#decopen(expand('%:p'), <count>)
 
 nnoremap <silent> <Plug>(incopen) :<C-u>Incopen<CR>
 
