@@ -29,7 +29,7 @@ function! s:increment(expr, count)
   return l:headzero . (l:num + a:count)
 endfunction
 
-function! incopen#increment(fpath, count, calcfunc)
+function! incopen#genpath(fpath, count, calcfunc)
   if a:fpath !~# '\d\+'
     return a:fpath
   endif
@@ -43,7 +43,7 @@ function! incopen#increment(fpath, count, calcfunc)
 endfunction
 
 function! incopen#open(fpath, count)
-  let l:nextpath = incopen#increment(a:fpath, a:count, function('s:increment'))
+  let l:nextpath = incopen#genpath(a:fpath, a:count, function('s:increment'))
   execute 'edit ' . l:nextpath
 endfunction
 
