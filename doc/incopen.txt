@@ -46,21 +46,6 @@ COMMANDS					*incopen-commands*
 
 	" Open '/path/to/idx015.txt'
 	:5Incopen
-<
-------------------------------------------------------------------------------
-COMMANDS					*incopen-commands*
-
-						*:Incopen*
-:[count]Incopen
-	Open the incremented current path.
-	Default count is 1.
->
-	" Current path is '/path/to/idx010.txt'
-	" Open '/path/to/idx011.txt'
-	:Incopen
-
-	" Open '/path/to/idx015.txt'
-	:5Incopen
 
 
 ------------------------------------------------------------------------------
