@@ -46,7 +46,19 @@ COMMANDS					*incopen-commands*
 
 	" Open '/path/to/idx015.txt'
 	:5Incopen
+<
+						*:Decopen*
+:[count]Decopen
+	Open the decremented current path.
+	Default count is 1.
+>
+	" Current path is '/path/to/idx010.txt'
+	" Open '/path/to/idx009.txt'
+	:Decopen
 
+	" Open '/path/to/idx005.txt'
+	:5Decopen
+<
 
 ------------------------------------------------------------------------------
 KEY MAPPINGS					*incopen-key-mappings*
@@ -54,6 +66,11 @@ KEY MAPPINGS					*incopen-key-mappings*
 <Plug>(incopen)					*<Plug>(incopen)*
 			Open the incremented current path.
 			This is normally same as |:Incopen|
+			without arguments.
+
+<Plug>(decopen)					*<Plug>(decopen)*
+			Open the decremented current path.
+			This is normally same as |:Decopen|
 			without arguments.
 
 
