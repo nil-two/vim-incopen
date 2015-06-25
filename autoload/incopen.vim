@@ -29,7 +29,7 @@ function! s:increment(expr, count)
   return l:headzero . (l:num + a:count)
 endfunction
 
-function! incopen#increment(fpath, count)
+function! incopen#increment(fpath, count, calcfunc)
   if a:fpath !~# '\d\+'
     return a:fpath
   endif
@@ -39,11 +39,11 @@ function! incopen#increment(fpath, count)
   let l:left  = a:fpath[: l:lastmatch - 1]
   let l:expr  = a:fpath[l:lastmatch : l:lastmatchend - 1]
   let l:right = a:fpath[l:lastmatchend :]
-  return l:left . s:increment(l:expr, a:count) . l:right
+  return l:left . a:calcfunc(l:expr, a:count) . l:right
 endfunction
 
 function! incopen#open(fpath, count)
-  let l:nextpath = incopen#increment(a:fpath, a:count)
+  let l:nextpath = incopen#increment(a:fpath, a:count, function('s:increment'))
   execute 'edit ' . l:nextpath
 endfunction
 
