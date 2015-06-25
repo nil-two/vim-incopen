@@ -56,6 +56,16 @@ function! s:suite.test_genpath()
   \  'dst':  '/path/to/005.txt'},
   \ {'expr': '/path/to/010.txt', 'count': 15, 'calcfunc': 'incopen#decrement',
   \  'dst':  '/path/to/000.txt'},
+  \
+  \ {'expr': '/10/20/010.txt', 'count': 1, 'calcfunc': 'incopen#increment',
+  \  'dst':  '/10/20/011.txt'},
+  \ {'expr': '/10/20/010.txt', 'count': 5, 'calcfunc': 'incopen#increment',
+  \  'dst':  '/10/20/015.txt'},
+  \
+  \ {'expr': '/path/01/idx.txt', 'count': 1, 'calcfunc': 'incopen#increment',
+  \  'dst':  '/path/02/idx.txt'},
+  \ {'expr': '/path/01/idx.txt', 'count': 5, 'calcfunc': 'incopen#increment',
+  \  'dst':  '/path/06/idx.txt'},
   \]
     let expect = test.dst
     let actual = incopen#genpath(test.expr, test.count, function(test.calcfunc))
