@@ -10,41 +10,41 @@ function! s:lastmatch(expr, pat)
   if a:expr !~# a:pat
     return -1
   endif
-  let l:match    = match(a:expr, a:pat)
-  let l:matchend = matchend(a:expr, a:pat)
+  let match    = match(a:expr, a:pat)
+  let matchend = matchend(a:expr, a:pat)
   while 1
-    let l:nextmatch = match(a:expr, a:pat, l:matchend+1)
-    if l:nextmatch == -1
+    let nextmatch = match(a:expr, a:pat, matchend+1)
+    if nextmatch == -1
       break
     endif
-    let l:match    = l:nextmatch
-    let l:matchend = matchend(a:expr, a:pat, l:matchend+1)
+    let match    = nextmatch
+    let matchend = matchend(a:expr, a:pat, matchend+1)
   endwhile
-  return l:match
+  return match
 endfunction
 
 function! s:increment(expr, count)
-  let l:headzero = matchstr(a:expr, '^0*')
-  let l:num = a:expr[matchend(a:expr, '^0*') :]
-  return l:headzero . (l:num + a:count)
+  let headzero = matchstr(a:expr, '^0*')
+  let num = a:expr[matchend(a:expr, '^0*') :]
+  return headzero . (num + a:count)
 endfunction
 
 function! incopen#genpath(fpath, count, calcfunc)
   if a:fpath !~# '\d\+'
     return a:fpath
   endif
-  let l:lastmatch    = s:lastmatch(a:fpath, '\d\+')
-  let l:lastmatchend = matchend(a:fpath, '\d\+', l:lastmatch)
+  let lastmatch    = s:lastmatch(a:fpath, '\d\+')
+  let lastmatchend = matchend(a:fpath, '\d\+', lastmatch)
 
-  let l:left  = a:fpath[: l:lastmatch - 1]
-  let l:expr  = a:fpath[l:lastmatch : l:lastmatchend - 1]
-  let l:right = a:fpath[l:lastmatchend :]
-  return l:left . a:calcfunc(l:expr, a:count) . l:right
+  let left  = a:fpath[: lastmatch - 1]
+  let expr  = a:fpath[lastmatch : lastmatchend - 1]
+  let right = a:fpath[lastmatchend :]
+  return left . a:calcfunc(expr, a:count) . right
 endfunction
 
 function! incopen#open(fpath, count)
-  let l:nextpath = incopen#genpath(a:fpath, a:count, function('s:increment'))
-  execute 'edit ' . l:nextpath
+  let nextpath = incopen#genpath(a:fpath, a:count, function('s:increment'))
+  execute 'edit ' . nextpath
 endfunction
 
 let &cpo = s:save_cpo
