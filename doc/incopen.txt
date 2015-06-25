@@ -1,0 +1,60 @@
+*incopen.txt*	Open the incremented current path.
+
+Version: 0.1.0
+Author : wara <kusabashira227@gmail.com>
+License: MIT License
+
+==============================================================================
+CONTENTS					*incopen-contents*
+
+INTRODUCTION			|incopen-introduction|
+INTERFACE			|incopen-interface|
+  COMMANDS			  |incopen-commands|
+CHANGELOG			|incopen-changelog|
+
+
+
+==============================================================================
+INTRODUCTION					*incopen-introduction*
+
+*vim-incopen* is a Vim plugin to provide a way
+to open path which is in the serial number.
+
+Requirements:
+- Vim 7.4 or later
+
+Latest version:
+https://github.com/kusabashira/vim-incopen
+
+
+
+==============================================================================
+INTERFACE					*incopen-interface*
+
+------------------------------------------------------------------------------
+COMMANDS					*incopen-commands*
+
+						*:Incopen*
+:[count]Incopen
+	Open the incremented current path.
+	Default count is 1.
+>
+	" Current path is '/path/to/idx010.txt'
+	" Open '/path/to/idx011.txt'
+	:Incopen
+
+	" Open '/path/to/idx015.txt'
+	:5Incopen
+<
+
+
+==============================================================================
+CHANGELOG					*incopen-changelog*
+
+0.1.0	2015-06-25
+	- Initial version.
+
+
+
+==============================================================================
+vim:tw=78:fo=tcq2mM:ts=8:ft=help:norl
