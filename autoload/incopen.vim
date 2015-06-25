@@ -25,9 +25,20 @@ endfunction
 
 function! incopen#increment(expr, count)
   let headzero = matchstr(a:expr, '^0*')
-  let num = a:expr[matchend(a:expr, '^0*') :]
-  return headzero . (num + a:count)
+  let lenhead  = strlen(headzero)
+
+  let orinum  = a:expr[lenhead :] + 0
+  let newnum  = orinum + a:count
+  let lendiff = strlen(string(newnum)) - strlen(string(orinum))
+
+  if lendiff >= lenhead
+    let headzero = ''
+  elseif lendiff > 0
+    let headzero = headzero[: lenhead - lendiff - 1]
+  endif
+  return headzero . newnum
 endfunction
+
 
 function! incopen#decrement(expr, count)
   let headzero = matchstr(a:expr, '^0*')
