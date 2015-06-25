@@ -42,3 +42,23 @@ function! s:suite.test_decrement()
     call s:assert.equals(actual, expect)
   endfor
 endfunction
+
+function! s:suite.test_genpath()
+  for test in [
+  \ {'expr': '/path/to/010.txt', 'count': 1, 'calcfunc': 'incopen#increment',
+  \  'dst':  '/path/to/011.txt'},
+  \ {'expr': '/path/to/010.txt', 'count': 5, 'calcfunc': 'incopen#increment',
+  \  'dst':  '/path/to/015.txt'},
+  \
+  \ {'expr': '/path/to/010.txt', 'count': 1, 'calcfunc': 'incopen#decrement',
+  \  'dst':  '/path/to/009.txt'},
+  \ {'expr': '/path/to/010.txt', 'count': 5, 'calcfunc': 'incopen#decrement',
+  \  'dst':  '/path/to/005.txt'},
+  \ {'expr': '/path/to/010.txt', 'count': 15, 'calcfunc': 'incopen#decrement',
+  \  'dst':  '/path/to/000.txt'},
+  \]
+    let expect = test.dst
+    let actual = incopen#genpath(test.expr, test.count, function(test.calcfunc))
+    call s:assert.equals(actual, expect)
+  endfor
+endfunction
