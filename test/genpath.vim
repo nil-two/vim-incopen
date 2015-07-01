@@ -26,6 +26,10 @@ endfunction
 
 function! s:suite.test_decrement()
   for test in [
+  \ {'expr': '0',   'count': 1, 'dst': '0'},
+  \ {'expr': '00',  'count': 1, 'dst': '00'},
+  \ {'expr': '000', 'count': 1, 'dst': '000'},
+  \
   \ {'expr': '10', 'count': 10, 'dst': '0'},
   \ {'expr': '10', 'count': 20, 'dst': '0'},
   \ 
