@@ -3,6 +3,10 @@ let s:assert = themis#helper('assert')
 
 function! s:suite.test_increment()
   for test in [
+  \ {'expr': '0',   'count': 1, 'dst': '1'},
+  \ {'expr': '00',  'count': 1, 'dst': '01'},
+  \ {'expr': '000', 'count': 1, 'dst': '001'},
+  \
   \ {'expr': '10', 'count': 1, 'dst': '11'},
   \ {'expr': '10', 'count': 2, 'dst': '12'},
   \
