@@ -30,6 +30,9 @@ function! incopen#increment(expr, count)
   let orinum  = a:expr[lenhead :] + 0
   let newnum  = orinum + a:count
   let lendiff = strlen(string(newnum)) - strlen(string(orinum))
+  if orinum == 0
+    let lendiff += 1
+  end
 
   if lendiff >= lenhead
     let headzero = ''
