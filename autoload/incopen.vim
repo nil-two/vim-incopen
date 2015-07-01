@@ -47,6 +47,9 @@ function! incopen#decrement(expr, count)
   let lenhead  = strlen(headzero)
 
   let orinum = a:expr[matchend(a:expr, '^0*') :] + 0
+  if orinum == 0
+    return a:expr
+  endif
   let newnum = orinum - a:count
   if newnum < 0
     let newnum = 0
