@@ -75,14 +75,18 @@ function! incopen#genpath(fpath, count, calcfunc)
   return lhs . a:calcfunc(expr, a:count) . rhs
 endfunction
 
-function! incopen#incopen(fpath, count)
-  let nextpath = incopen#genpath(a:fpath, a:count, function('incopen#increment'))
+function! incopen#open(calcfunc, cnt)
+  let path = expand('%:p')
+  let nextpath = incopen#genpath(path, a:cnt, function(a:calcfunc))
   execute 'edit ' . nextpath
 endfunction
 
-function! incopen#decopen(fpath, count)
-  let nextpath = incopen#genpath(a:fpath, a:count, function('incopen#decrement'))
-  execute 'edit ' . nextpath
+function! incopen#incopen(...)
+  call incopen#open('incopen#increment', get(a:, 1, 1))
+endfunction
+
+function! incopen#decopen(...)
+  call incopen#open('incopen#decrement', get(a:, 1, 1))
 endfunction
 
 let &cpo = s:save_cpo

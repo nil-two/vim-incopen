@@ -12,9 +12,9 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 command! -bar -range=1 Incopen
-\ call incopen#incopen(expand('%:p'), <count>)
+\ call incopen#incopen(<count>)
 command! -bar -range=1 Decopen
-\ call incopen#decopen(expand('%:p'), <count>)
+\ call incopen#decopen(<count>)
 
 nnoremap <silent> <Plug>(incopen) :<C-u>Incopen<CR>
 nnoremap <silent> <Plug>(decopen) :<C-u>Decopen<CR>
