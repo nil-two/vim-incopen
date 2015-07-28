@@ -13,23 +13,14 @@ function! incopen#increment(expr, count)
 endfunction
 
 function! incopen#decrement(expr, count)
-  let headzero = matchstr(a:expr, '^0*')
-  let lenhead  = strlen(headzero)
-
-  let orinum = a:expr[matchend(a:expr, '^0*') :] + 0
-  if orinum == 0
-    return a:expr
+  if a:expr =~# '^0'
+    let width  = strlen(a:expr)
+    let orinum = a:expr[matchend(a:expr, '^0*') :] + 0
+    let newnum = max([0, orinum - a:count])
+    return printf('%0'.width.'d', newnum)
   endif
-  let newnum = orinum - a:count
-  if newnum < 0
-    let newnum = 0
-  endif
-  let lendiff = strlen(string(orinum)) - strlen(string(newnum))
-
-  if lenhead > 0 && lendiff > 0
-    let headzero = headzero . repeat('0', lendiff)
-  endif
-  return headzero . newnum
+  let num = max([0, a:expr - a:count])
+  return num
 endfunction
 
 function! incopen#genpath(fpath, count, calcfunc)
