@@ -7,22 +7,9 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 function! incopen#increment(expr, count)
-  let headzero = matchstr(a:expr, '^0*')
-  let lenhead  = strlen(headzero)
-
-  let orinum  = a:expr[lenhead :] + 0
-  let newnum  = orinum + a:count
-  let lendiff = strlen(string(newnum)) - strlen(string(orinum))
-  if orinum == 0
-    let lendiff += 1
-  end
-
-  if lendiff >= lenhead
-    let headzero = ''
-  elseif lendiff > 0
-    let headzero = headzero[: lenhead - lendiff - 1]
-  endif
-  return headzero . newnum
+  let width = strlen(a:expr)
+  let num   = a:expr[matchend(a:expr, '^0*') :] + a:count
+  return printf('%0'.width.'d', num)
 endfunction
 
 function! incopen#decrement(expr, count)
