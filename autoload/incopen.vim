@@ -6,23 +6,6 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-function! s:lastmatch(expr, pat)
-  if a:expr !~# a:pat
-    return -1
-  endif
-  let head = match(a:expr, a:pat)
-  let tail = matchend(a:expr, a:pat)
-  while 1
-    let nexthead = match(a:expr, a:pat, tail+1)
-    if nexthead == -1
-      break
-    endif
-    let head = nexthead
-    let tail = matchend(a:expr, a:pat, tail+1)
-  endwhile
-  return head
-endfunction
-
 function! incopen#increment(expr, count)
   let headzero = matchstr(a:expr, '^0*')
   let lenhead  = strlen(headzero)
@@ -63,11 +46,12 @@ function! incopen#decrement(expr, count)
 endfunction
 
 function! incopen#genpath(fpath, count, calcfunc)
-  if a:fpath !~# '\d\+'
+  let lastdigits = '\d\+\ze\D*$'
+  if a:fpath !~# lastdigits
     return a:fpath
   endif
-  let head = s:lastmatch(a:fpath, '\d\+')
-  let tail = matchend(a:fpath, '\d\+', head)
+  let head = match(a:fpath, lastdigits)
+  let tail = matchend(a:fpath, lastdigits)
 
   let lhs  = a:fpath[: head - 1]
   let expr = a:fpath[head : tail - 1]
