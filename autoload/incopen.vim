@@ -23,7 +23,7 @@ function! incopen#decrement(expr, count)
   return num
 endfunction
 
-function! incopen#genpath(fpath, count, calcfunc)
+function! incopen#genpath(fpath, count, calcfunc_name)
   let lastdigits = '\d\+\ze\D*$'
   if a:fpath !~# lastdigits
     return a:fpath
@@ -34,12 +34,13 @@ function! incopen#genpath(fpath, count, calcfunc)
   let lhs  = a:fpath[: head - 1]
   let expr = a:fpath[head : tail - 1]
   let rhs  = a:fpath[tail :]
-  return lhs . a:calcfunc(expr, a:count) . rhs
+  let CalcFunc = function(a:calcfunc_name)
+  return lhs . CalcFunc(expr, a:count) . rhs
 endfunction
 
 function! incopen#open(calcfunc_name, count)
   let path = expand('%:p')
-  let nextpath = incopen#genpath(path, a:count, function(a:calcfunc_name))
+  let nextpath = incopen#genpath(path, a:count, a:calcfunc_name)
   execute 'edit ' . nextpath
 endfunction
 
