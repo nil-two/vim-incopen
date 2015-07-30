@@ -37,9 +37,9 @@ function! incopen#genpath(fpath, count, calcfunc)
   return lhs . a:calcfunc(expr, a:count) . rhs
 endfunction
 
-function! incopen#open(calcfunc, cnt)
+function! incopen#open(calcfunc_name, count)
   let path = expand('%:p')
-  let nextpath = incopen#genpath(path, a:cnt, function(a:calcfunc))
+  let nextpath = incopen#genpath(path, a:count, function(a:calcfunc_name))
   execute 'edit ' . nextpath
 endfunction
 
