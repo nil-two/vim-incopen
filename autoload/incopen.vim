@@ -32,18 +32,16 @@ function! incopen#increment_path(fpath, count)
   return lhs . s:increment(expr, a:count) . rhs
 endfunction
 
-function! incopen#open(count)
-  let path = expand('%:p')
-  let nextpath = incopen#increment_path(path, a:count)
-  execute 'edit ' . nextpath
-endfunction
-
 function! incopen#incopen(...)
-  call incopen#open(get(a:, 1, 1))
+  let count = get(a:, 1, 1)
+  let fpath = expand('%:p')
+  execute 'edit ' . incopen#increment_path(fpath, count)
 endfunction
 
 function! incopen#decopen(...)
-  call incopen#open(-get(a:, 1, 1))
+  let count = 0 - get(a:, 1, 1)
+  let fpath = expand('%:p')
+  execute 'edit ' . incopen#increment_path(fpath, count)
 endfunction
 
 let &cpo = s:save_cpo
