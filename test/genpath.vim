@@ -81,7 +81,7 @@ function! s:suite.test_genpath()
   \  'dst':  '/path/to/recipe.txt'},
   \]
     let expect = test.dst
-    let actual = incopen#genpath(test.expr, test.count, function(test.calcfunc))
+    let actual = incopen#genpath(test.expr, test.count, test.calcfunc)
     call s:assert.equals(actual, expect)
   endfor
 endfunction
