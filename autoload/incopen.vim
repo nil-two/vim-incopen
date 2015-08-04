@@ -32,6 +32,21 @@ function! incopen#increment_path(fpath, cnt)
   return lhs . s:increment(expr, a:cnt) . rhs
 endfunction
 
+function! incopen#next_path(fpath, cnt)
+  let rootpath = substitute(a:fpath, '[/\\]\zs[^/\\]*$', '', '')
+  let pathes   = split(glob(rootpath . '*'), '\n')
+  let files    = filter(pathes, '!isdirectory(v:val)')
+  if len(files) < 1
+    return a:fpath
+  endif
+
+  let idx = index(files, a:fpath) + a:cnt
+  if idx < 0 || idx >= len(files)
+    return a:fpath
+  endif
+  return files[idx]
+endfunction
+
 function! incopen#incopen(...)
   let cnt = get(a:, 1, 1)
   let fpath = expand('%:p')
@@ -47,23 +62,8 @@ endfunction
 function! incopen#nextopen(...)
   let cnt = get(a:, 1, 1)
   let fpath = expand('%:p')
-
-  let pathes = split(glob(expand('%:p:h') . '/*'), '\n')
-  let files  = filter(pathes, '!isdirectory(v:val)')
-  if len(files) < 1
-    execute 'edit ' . fpath
-    return
-  endif
-
-  let idx = index(files, fpath)
-  if idx < 0 || idx + cnt >= len(files)
-    execute 'edit ' . fpath
-    return
-  endif
-
-  execute 'edit ' . files[idx + cnt]
+  execute 'edit ' . incopen#next_path(fpath, cnt)
 endfunction
-
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
