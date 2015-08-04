@@ -44,5 +44,26 @@ function! incopen#decopen(...)
   execute 'edit ' . incopen#increment_path(fpath, cnt)
 endfunction
 
+function! incopen#nextopen(...)
+  let cnt = get(a:, 1, 1)
+  let fpath = expand('%:p')
+
+  let pathes = split(glob(expand('%:p:h') . '/*'), '\n')
+  let files  = filter(pathes, '!isdirectory(v:val)')
+  if len(files) < 1
+    execute 'edit ' . fpath
+    return
+  endif
+
+  let idx = index(files, fpath)
+  if idx < 0 || idx + cnt >= len(files)
+    execute 'edit ' . fpath
+    return
+  endif
+
+  execute 'edit ' . files[idx + cnt]
+endfunction
+
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
