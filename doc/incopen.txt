@@ -11,6 +11,7 @@ INTRODUCTION			|incopen-introduction|
 INTERFACE			|incopen-interface|
   COMMANDS			  |incopen-commands|
   KEY MAPPINGS			  |incopen-key-mappings|
+  VARIABLES			  |incopen-variables|
 CHANGELOG			|incopen-changelog|
 
 
@@ -109,6 +110,24 @@ KEY MAPPINGS					*incopen-key-mappings*
 			This is normally same as |:Prevopen|
 			without arguments.
 
+
+------------------------------------------------------------------------------
+VARIABLES 					*incopen-variables*
+
+g:incopen_enable_wrap				*g:incopen_enable_wrap*
+			If this variable is not 0,
+			|:Nextopen| and |:Prevopen| will search
+			wrap around the end of the files.
+			The default value is 1.
+>
+			" Current directory has 'abc.txt', 'def.txt', 'ghi.txt'
+			" Current path is '/path/to/ghi.txt'
+			" Open '/path/to/abc.txt'
+			:Nextopen
+
+			" Open '/path/to/def.txt'
+			:2Nextopen
+<
 
 
 ==============================================================================
