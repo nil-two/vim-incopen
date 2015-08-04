@@ -6,18 +6,18 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-function! s:increment(expr, count)
+function! s:increment(expr, cnt)
   if a:expr =~# '^0'
     let width  = strlen(a:expr)
     let orinum = a:expr[matchend(a:expr, '^0*') :] + 0
-    let newnum = max([0, orinum + a:count])
+    let newnum = max([0, orinum + a:cnt])
     return printf('%0'.width.'d', newnum)
   endif
-  let num = max([0, a:expr + a:count])
+  let num = max([0, a:expr + a:cnt])
   return num
 endfunction
 
-function! incopen#increment_path(fpath, count)
+function! incopen#increment_path(fpath, cnt)
   let lastdigits = '\d\+\ze\D*$'
   if a:fpath !~# lastdigits
     return a:fpath
@@ -29,19 +29,19 @@ function! incopen#increment_path(fpath, count)
   let lhs  = strpart(a:fpath, 0,    head)
   let expr = strpart(a:fpath, head, tail - head)
   let rhs  = strpart(a:fpath, tail, len  - tail)
-  return lhs . s:increment(expr, a:count) . rhs
+  return lhs . s:increment(expr, a:cnt) . rhs
 endfunction
 
 function! incopen#incopen(...)
-  let count = get(a:, 1, 1)
+  let cnt = get(a:, 1, 1)
   let fpath = expand('%:p')
-  execute 'edit ' . incopen#increment_path(fpath, count)
+  execute 'edit ' . incopen#increment_path(fpath, cnt)
 endfunction
 
 function! incopen#decopen(...)
-  let count = 0 - get(a:, 1, 1)
+  let cnt = 0 - get(a:, 1, 1)
   let fpath = expand('%:p')
-  execute 'edit ' . incopen#increment_path(fpath, count)
+  execute 'edit ' . incopen#increment_path(fpath, cnt)
 endfunction
 
 let &cpo = s:save_cpo
