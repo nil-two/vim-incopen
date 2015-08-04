@@ -65,5 +65,11 @@ function! incopen#nextopen(...)
   execute 'edit ' . incopen#next_path(fpath, cnt)
 endfunction
 
+function! incopen#prevopen(...)
+  let cnt = 0 - get(a:, 1, 1)
+  let fpath = expand('%:p')
+  execute 'edit ' . incopen#next_path(fpath, cnt)
+endfunction
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
