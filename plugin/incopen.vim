@@ -25,5 +25,7 @@ nnoremap <silent> <Plug>(decopen) :<C-u>Decopen<CR>
 nnoremap <silent> <Plug>(nextopen) :<C-u>Nextopen<CR>
 nnoremap <silent> <Plug>(prevopen) :<C-u>Prevopen<CR>
 
+let g:incopen_enable_wrap = get(g:, 'incopen_enable_wrap', 1)
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
