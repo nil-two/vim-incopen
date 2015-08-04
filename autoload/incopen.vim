@@ -41,6 +41,9 @@ function! incopen#next_path(fpath, cnt)
   endif
 
   let idx = index(files, a:fpath) + a:cnt
+  if g:incopen_enable_wrap
+    return files[idx % len(files)]
+  endif
   if idx < 0 || idx >= len(files)
     return a:fpath
   endif
