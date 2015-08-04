@@ -20,6 +20,7 @@ command! -bar -range=1 Nextopen
 
 nnoremap <silent> <Plug>(incopen) :<C-u>Incopen<CR>
 nnoremap <silent> <Plug>(decopen) :<C-u>Decopen<CR>
+nnoremap <silent> <Plug>(nextopen) :<C-u>Nextopen<CR>
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
