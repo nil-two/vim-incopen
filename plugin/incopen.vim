@@ -15,6 +15,8 @@ command! -bar -range=1 Incopen
 \ call incopen#incopen(<count>)
 command! -bar -range=1 Decopen
 \ call incopen#decopen(<count>)
+command! -bar -range=1 Nextopen
+\ call incopen#nextopen(<count>)
 
 nnoremap <silent> <Plug>(incopen) :<C-u>Incopen<CR>
 nnoremap <silent> <Plug>(decopen) :<C-u>Decopen<CR>
