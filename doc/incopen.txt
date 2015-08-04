@@ -1,6 +1,6 @@
 *incopen.txt*	Open the incremented current path.
 
-Version: 0.1.0
+Version: 0.2.0
 Author : wara <kusabashira227@gmail.com>
 License: MIT License
 
@@ -132,6 +132,9 @@ g:incopen_enable_wrap				*g:incopen_enable_wrap*
 
 ==============================================================================
 CHANGELOG					*incopen-changelog*
+
+0.2.0	2015-08-04
+	- Implement |:Nextopen| and |:Prevopen|
 
 0.1.0	2015-06-25
 	- Initial version.
