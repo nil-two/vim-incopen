@@ -59,6 +59,32 @@ COMMANDS					*incopen-commands*
 	" Open '/path/to/idx005.txt'
 	:5Decopen
 <
+						*:Nextopen*
+:[count]Nextopen
+	Open the next file in the same directory.
+	Default count is 1.
+>
+	" Current directory has 'abc.txt', 'def.txt', 'ghi.txt'
+	" Current path is '/path/to/abc.txt'
+	" Open '/path/to/def.txt'
+	:Nextopen
+
+	" Open '/path/to/ghi.txt'
+	:2Nextopen
+<
+						*:Prevopen*
+:[count]Prevopen
+	Open the previous file in the same directory.
+	Default count is 1.
+>
+	" Current directory has 'abc.txt', 'def.txt', 'ghi.txt'
+	" Current path is '/path/to/ghi.txt'
+	" Open '/path/to/def.txt'
+	:Prevopen
+
+	" Open '/path/to/abc.txt'
+	:2Prevopen
+<
 
 ------------------------------------------------------------------------------
 KEY MAPPINGS					*incopen-key-mappings*
@@ -71,6 +97,16 @@ KEY MAPPINGS					*incopen-key-mappings*
 <Plug>(decopen)					*<Plug>(decopen)*
 			Open the decremented current path.
 			This is normally same as |:Decopen|
+			without arguments.
+
+<Plug>(nextopen)				*<Plug>(nextopen)*
+			Open the next file in the same directory.
+			This is normally same as |:Nextopen|
+			without arguments.
+
+<Plug>(prevopen)				*<Plug>(prevopen)*
+			Open the previous file in the same directory.
+			This is normally same as |:Prevopen|
 			without arguments.
 
 
