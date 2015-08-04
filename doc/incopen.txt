@@ -38,53 +38,53 @@ COMMANDS					*incopen-commands*
 
 						*:Incopen*
 :[count]Incopen
-	Open the incremented current path.
-	Default count is 1.
+			Open the incremented current path.
+			Default count is 1.
 >
-	" Current path is '/path/to/idx010.txt'
-	" Open '/path/to/idx011.txt'
-	:Incopen
+			" Current path is '/path/to/idx010.txt'
+			" Open '/path/to/idx011.txt'
+			:Incopen
 
-	" Open '/path/to/idx015.txt'
-	:5Incopen
+			" Open '/path/to/idx015.txt'
+			:5Incopen
 <
-						*:Decopen*
+								*:Decopen*
 :[count]Decopen
-	Open the decremented current path.
-	Default count is 1.
+			Open the decremented current path.
+			Default count is 1.
 >
-	" Current path is '/path/to/idx010.txt'
-	" Open '/path/to/idx009.txt'
-	:Decopen
+			" Current path is '/path/to/idx010.txt'
+			" Open '/path/to/idx009.txt'
+			:Decopen
 
-	" Open '/path/to/idx005.txt'
-	:5Decopen
+			" Open '/path/to/idx005.txt'
+			:5Decopen
 <
-						*:Nextopen*
+								*:Nextopen*
 :[count]Nextopen
-	Open the next file in the same directory.
-	Default count is 1.
+			Open the next file in the same directory.
+			Default count is 1.
 >
-	" Current directory has 'abc.txt', 'def.txt', 'ghi.txt'
-	" Current path is '/path/to/abc.txt'
-	" Open '/path/to/def.txt'
-	:Nextopen
+			" Current directory has 'abc.txt', 'def.txt', 'ghi.txt'
+			" Current path is '/path/to/abc.txt'
+			" Open '/path/to/def.txt'
+			:Nextopen
 
-	" Open '/path/to/ghi.txt'
-	:2Nextopen
+			" Open '/path/to/ghi.txt'
+			:2Nextopen
 <
-						*:Prevopen*
+								*:Prevopen*
 :[count]Prevopen
-	Open the previous file in the same directory.
-	Default count is 1.
+			Open the previous file in the same directory.
+			Default count is 1.
 >
-	" Current directory has 'abc.txt', 'def.txt', 'ghi.txt'
-	" Current path is '/path/to/ghi.txt'
-	" Open '/path/to/def.txt'
-	:Prevopen
+			" Current directory has 'abc.txt', 'def.txt', 'ghi.txt'
+			" Current path is '/path/to/ghi.txt'
+			" Open '/path/to/def.txt'
+			:Prevopen
 
-	" Open '/path/to/abc.txt'
-	:2Prevopen
+			" Open '/path/to/abc.txt'
+			:2Prevopen
 <
 
 ------------------------------------------------------------------------------
