@@ -1,8 +1,3 @@
-" Open the incremented current path.
-" Version: 0.1.0
-" Author : wara <kusabashira227@gmail.com>
-" License: MIT License
-
 if exists('g:loaded_incopen')
   finish
 endif
