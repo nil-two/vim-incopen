@@ -6,7 +6,7 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-function! s:increment(expr, cnt)
+function! s:increment(expr, cnt) abort
   if a:expr =~# '^0'
     let width  = strlen(a:expr)
     let orinum = a:expr[matchend(a:expr, '^0*') :] + 0
@@ -17,7 +17,7 @@ function! s:increment(expr, cnt)
   return num
 endfunction
 
-function! incopen#increment_path(fpath, cnt)
+function! incopen#increment_path(fpath, cnt) abort
   let lastdigits = '\d\+\ze\D*$'
   if a:fpath !~# lastdigits
     return a:fpath
@@ -32,7 +32,7 @@ function! incopen#increment_path(fpath, cnt)
   return lhs . s:increment(expr, a:cnt) . rhs
 endfunction
 
-function! incopen#next_path(fpath, cnt)
+function! incopen#next_path(fpath, cnt) abort
   let rootpath = substitute(a:fpath, '[/\\]\zs[^/\\]*$', '', '')
   let pathes   = split(glob(rootpath . '*'), '\n')
   let files    = filter(pathes, '!isdirectory(v:val)')
@@ -50,25 +50,25 @@ function! incopen#next_path(fpath, cnt)
   return files[idx]
 endfunction
 
-function! incopen#incopen(...)
+function! incopen#incopen(...) abort
   let cnt = get(a:, 1, 1)
   let fpath = expand('%:p')
   execute 'edit ' . incopen#increment_path(fpath, cnt)
 endfunction
 
-function! incopen#decopen(...)
+function! incopen#decopen(...) abort
   let cnt = 0 - get(a:, 1, 1)
   let fpath = expand('%:p')
   execute 'edit ' . incopen#increment_path(fpath, cnt)
 endfunction
 
-function! incopen#nextopen(...)
+function! incopen#nextopen(...) abort
   let cnt = get(a:, 1, 1)
   let fpath = expand('%:p')
   execute 'edit ' . incopen#next_path(fpath, cnt)
 endfunction
 
-function! incopen#prevopen(...)
+function! incopen#prevopen(...) abort
   let cnt = 0 - get(a:, 1, 1)
   let fpath = expand('%:p')
   execute 'edit ' . incopen#next_path(fpath, cnt)
