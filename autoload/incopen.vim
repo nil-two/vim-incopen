@@ -3,10 +3,10 @@ set cpo&vim
 
 function! s:increment(expr, cnt) abort
   if a:expr =~# '^0'
-    let width  = strlen(a:expr)
+    let fmt = '%0' . strlen(a:expr) . 'd'
     let orinum = a:expr[matchend(a:expr, '^0*') :] + 0
     let newnum = max([0, orinum + a:cnt])
-    return printf('%0'.width.'d', newnum)
+    return printf(fmt, newnum)
   endif
   let num = max([0, a:expr + a:cnt])
   return num
