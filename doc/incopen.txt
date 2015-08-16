@@ -1,7 +1,7 @@
 *incopen.txt*	Open the incremented current path.
 
 Version: 0.2.0
-Author : wara <kusabashira227@gmail.com>
+Author : kusabashira <kusabashira227@gmail.com>
 License: MIT License
 
 ==============================================================================
