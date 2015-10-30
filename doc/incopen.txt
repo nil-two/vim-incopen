@@ -7,13 +7,12 @@ License: MIT License
 ==============================================================================
 CONTENTS					*incopen-contents*
 
-INTRODUCTION			|incopen-introduction|
-INTERFACE			|incopen-interface|
-  COMMANDS			  |incopen-commands|
-  KEY MAPPINGS			  |incopen-key-mappings|
-  VARIABLES			  |incopen-variables|
-CHANGELOG			|incopen-changelog|
-
+INTRODUCTION		|incopen-introduction|
+INTERFACE		|incopen-interface|
+  COMMANDS		  |incopen-commands|
+  KEY MAPPINGS		  |incopen-key-mappings|
+  VARIABLES		  |incopen-variables|
+CHANGELOG		|incopen-changelog|
 
 
 ==============================================================================
@@ -29,7 +28,6 @@ Latest version:
 https://github.com/kusabashira/vim-incopen
 
 
-
 ==============================================================================
 INTERFACE					*incopen-interface*
 
@@ -38,97 +36,95 @@ COMMANDS					*incopen-commands*
 
 						*:Incopen*
 :[count]Incopen
-			Open the incremented current path.
-			Default count is 1.
+		Open the incremented current path.
+		Default count is 1.
 >
-			" Current path is '/path/to/idx010.txt'
-			" Open '/path/to/idx011.txt'
-			:Incopen
+		" Current path is '/path/to/idx010.txt'
+		" Open '/path/to/idx011.txt'
+		:Incopen
 
-			" Open '/path/to/idx015.txt'
-			:5Incopen
+		" Open '/path/to/idx015.txt'
+		:5Incopen
 <
-								*:Decopen*
+							*:Decopen*
 :[count]Decopen
-			Open the decremented current path.
-			Default count is 1.
+		Open the decremented current path.
+		Default count is 1.
 >
-			" Current path is '/path/to/idx010.txt'
-			" Open '/path/to/idx009.txt'
-			:Decopen
+		" Current path is '/path/to/idx010.txt'
+		" Open '/path/to/idx009.txt'
+		:Decopen
 
-			" Open '/path/to/idx005.txt'
-			:5Decopen
+		" Open '/path/to/idx005.txt'
+		:5Decopen
 <
-								*:Nextopen*
+							*:Nextopen*
 :[count]Nextopen
-			Open the next file in the same directory.
-			Default count is 1.
+		Open the next file in the same directory.
+		Default count is 1.
 >
-			" Current directory has 'abc.txt', 'def.txt', 'ghi.txt'
-			" Current path is '/path/to/abc.txt'
-			" Open '/path/to/def.txt'
-			:Nextopen
+		" Current directory has 'abc.txt', 'def.txt', 'ghi.txt'
+		" Current path is '/path/to/abc.txt'
+		" Open '/path/to/def.txt'
+		:Nextopen
 
-			" Open '/path/to/ghi.txt'
-			:2Nextopen
+		" Open '/path/to/ghi.txt'
+		:2Nextopen
 <
-								*:Prevopen*
+							*:Prevopen*
 :[count]Prevopen
-			Open the previous file in the same directory.
-			Default count is 1.
+		Open the previous file in the same directory.
+		Default count is 1.
 >
-			" Current directory has 'abc.txt', 'def.txt', 'ghi.txt'
-			" Current path is '/path/to/ghi.txt'
-			" Open '/path/to/def.txt'
-			:Prevopen
+		" Current directory has 'abc.txt', 'def.txt', 'ghi.txt'
+		" Current path is '/path/to/ghi.txt'
+		" Open '/path/to/def.txt'
+		:Prevopen
 
-			" Open '/path/to/abc.txt'
-			:2Prevopen
-<
+		" Open '/path/to/abc.txt'
+		:2Prevopen
 
 ------------------------------------------------------------------------------
 KEY MAPPINGS					*incopen-key-mappings*
 
 <Plug>(incopen)					*<Plug>(incopen)*
-			Open the incremented current path.
-			This is normally same as |:Incopen|
-			without arguments.
+		Open the incremented current path.
+		This is normally same as |:Incopen|
+		without arguments.
 
 <Plug>(decopen)					*<Plug>(decopen)*
-			Open the decremented current path.
-			This is normally same as |:Decopen|
-			without arguments.
+		Open the decremented current path.
+		This is normally same as |:Decopen|
+		without arguments.
 
 <Plug>(nextopen)				*<Plug>(nextopen)*
-			Open the next file in the same directory.
-			This is normally same as |:Nextopen|
-			without arguments.
+		Open the next file in the same directory.
+		This is normally same as |:Nextopen|
+		without arguments.
 
 <Plug>(prevopen)				*<Plug>(prevopen)*
-			Open the previous file in the same directory.
-			This is normally same as |:Prevopen|
-			without arguments.
-
+		Open the previous file in the same directory.
+		This is normally same as |:Prevopen|
+		without arguments.
 
 ------------------------------------------------------------------------------
 VARIABLES 					*incopen-variables*
 
 g:incopen_enable_wrap				*g:incopen_enable_wrap*
-			If this variable is not 0,
-			|:Nextopen| and |:Prevopen| will search
-			wrap around the end of the files.
-			The default value is 1.
+		If this variable is not 0,
+		|:Nextopen| and |:Prevopen| will search
+		wrap around the end of the files.
+
+		The default value is 1.
 >
-			" Current directory has 'abc.txt', 'def.txt', 'ghi.txt'
-			" Current path is '/path/to/ghi.txt'
-			" Open '/path/to/abc.txt'
-			:Nextopen
+		" Current directory has 'abc.txt', 'def.txt', 'ghi.txt'
+		" Current path is '/path/to/ghi.txt'
+		" Open '/path/to/abc.txt'
+		:Nextopen
 
-			" Open '/path/to/def.txt'
-			:2Nextopen
+		" Open '/path/to/def.txt'
+		:2Nextopen
 <
-
 
 ==============================================================================
 CHANGELOG					*incopen-changelog*
@@ -138,7 +134,6 @@ CHANGELOG					*incopen-changelog*
 
 0.1.0	2015-06-25
 	- Initial version.
-
 
 
 ==============================================================================
