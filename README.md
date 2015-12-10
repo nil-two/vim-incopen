@@ -12,7 +12,9 @@ Usage
 
 ####Open file
 
-	:Incopen
+```
+:Incopen
+```
 
 If your path is `/path/to/010.txt`,
 it will open `/path/to/011.txt`
@@ -20,7 +22,9 @@ it will open `/path/to/011.txt`
 
 ####With count
 
-	:5Incopen
+```
+:5Incopen
+```
 
 If your path is `/path/to/010.txt`,
 it will open `/path/to/015.txt`,
