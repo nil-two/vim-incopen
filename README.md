@@ -38,7 +38,7 @@ Example of `vimrc`
 nmap <silent>)) <Plug>(incopen)
 
 " Open decrmented path.
-nmap <silent>(( <Plug>(incopen)
+nmap <silent>(( <Plug>(decopen)
 ```
 
 License
