@@ -5,7 +5,7 @@ Open the incremented current path.
 
 It's inspired by
 [vimperator](https://addons.mozilla.org/ja/firefox/addon/vimperator/)'s
-`<C-a>` and `<C-x>`
+`<C-a>` and `<C-x>`.
 
 Usage
 -----
@@ -17,8 +17,7 @@ Usage
 ```
 
 If your path is `/path/to/010.txt`,
-it will open `/path/to/011.txt`
-
+it will open `/path/to/011.txt`.
 
 #### With count
 
@@ -27,7 +26,7 @@ it will open `/path/to/011.txt`
 ```
 
 If your path is `/path/to/010.txt`,
-it will open `/path/to/015.txt`,
+it will open `/path/to/015.txt`.
 
 License
 -------
