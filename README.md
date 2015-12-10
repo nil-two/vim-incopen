@@ -28,6 +28,17 @@ it will open `/path/to/011.txt`.
 If your path is `/path/to/010.txt`,
 it will open `/path/to/015.txt`.
 
+Example of `vimrc`
+------------------
+
+```vim
+" Open incremented path.
+nmap <silent>)) <Plug>(incopen)
+
+" Open decrmented path.
+nmap <silent>(( <Plug>(incopen)
+```
+
 License
 -------
 
