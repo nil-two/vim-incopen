@@ -10,7 +10,7 @@ It's inspired by
 Usage
 -----
 
-####Open file
+#### Open file
 
 ```
 :Incopen
@@ -20,7 +20,7 @@ If your path is `/path/to/010.txt`,
 it will open `/path/to/011.txt`
 
 
-####With count
+#### With count
 
 ```
 :5Incopen
