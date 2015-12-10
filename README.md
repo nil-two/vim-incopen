@@ -1,6 +1,8 @@
 incopen
 =======
 
+[![Build Status](https://travis-ci.org/kusabashira/vim-incopen.svg?branch=master)](https://travis-ci.org/kusabashira/vim-incopen)
+
 Open the incremented current path.
 
 It's inspired by
