@@ -18,7 +18,7 @@ CHANGELOG		|incopen-changelog|
 ==============================================================================
 INTRODUCTION					*incopen-introduction*
 
-*vim-incopen* is a Vim plugin to provide a way
+*incopen* is a Vim plugin to provide a way
 to open path which is in the serial number.
 
 Requirements:
