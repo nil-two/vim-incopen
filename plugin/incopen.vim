@@ -3,9 +3,6 @@ if exists('g:loaded_incopen')
 endif
 let g:loaded_incopen = 1
 
-let s:save_cpo = &cpo
-set cpo&vim
-
 command! -bar -range=1 Incopen
 \ call incopen#incopen(<count>)
 command! -bar -range=1 Decopen
@@ -21,6 +18,3 @@ nnoremap <silent> <Plug>(nextopen) :<C-u>Nextopen<CR>
 nnoremap <silent> <Plug>(prevopen) :<C-u>Prevopen<CR>
 
 let g:incopen_enable_wrap = get(g:, 'incopen_enable_wrap', 1)
-
-let &cpo = s:save_cpo
-unlet s:save_cpo

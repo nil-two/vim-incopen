@@ -1,6 +1,3 @@
-let s:save_cpo = &cpo
-set cpo&vim
-
 function! s:increment(expr, cnt) abort
   if a:expr =~# '^0'
     let fmt = '%0' . strlen(a:expr) . 'd'
@@ -68,6 +65,3 @@ function! incopen#prevopen(...) abort
   let fpath = expand('%:p')
   execute 'edit ' . incopen#next_path(fpath, cnt)
 endfunction
-
-let &cpo = s:save_cpo
-unlet s:save_cpo
