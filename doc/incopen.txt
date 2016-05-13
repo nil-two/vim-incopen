@@ -18,8 +18,8 @@ CHANGELOG		|incopen-changelog|
 ==============================================================================
 INTRODUCTION					*incopen-introduction*
 
-*incopen* is a Vim plugin to provide a way
-to open path which is in the serial number.
+*incopen* is a Vim plugin which provides a way
+to open the numbered path.
 
 Requirements:
 - Vim 7.4 or later
@@ -89,23 +89,19 @@ KEY MAPPINGS					*incopen-key-mappings*
 
 <Plug>(incopen)					*<Plug>(incopen)*
 		Open the incremented current path.
-		This is normally same as |:Incopen|
-		without arguments.
+		This is normally same as |:Incopen|.
 
 <Plug>(decopen)					*<Plug>(decopen)*
 		Open the decremented current path.
-		This is normally same as |:Decopen|
-		without arguments.
+		This is normally same as |:Decopen|.
 
 <Plug>(nextopen)				*<Plug>(nextopen)*
 		Open the next file in the same directory.
-		This is normally same as |:Nextopen|
-		without arguments.
+		This is normally same as |:Nextopen|.
 
 <Plug>(prevopen)				*<Plug>(prevopen)*
 		Open the previous file in the same directory.
-		This is normally same as |:Prevopen|
-		without arguments.
+		This is normally same as |:Prevopen|.
 
 ------------------------------------------------------------------------------
 VARIABLES 					*incopen-variables*
@@ -133,7 +129,7 @@ CHANGELOG					*incopen-changelog*
 	- Allow using keymaps with count.
 
 0.2.0	2015-08-04
-	- Implement |:Nextopen| and |:Prevopen|
+	- Implement |:Nextopen| and |:Prevopen|.
 
 0.1.0	2015-06-25
 	- Initial version.
