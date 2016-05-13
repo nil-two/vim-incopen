@@ -12,9 +12,13 @@ command! -bar -range=1 Nextopen
 command! -bar -range=1 Prevopen
 \ call incopen#prevopen(<count>)
 
-nnoremap <silent> <Plug>(incopen) :<C-u>Incopen<CR>
-nnoremap <silent> <Plug>(decopen) :<C-u>Decopen<CR>
-nnoremap <silent> <Plug>(nextopen) :<C-u>Nextopen<CR>
-nnoremap <silent> <Plug>(prevopen) :<C-u>Prevopen<CR>
+nnoremap <silent> <Plug>(incopen)
+\ :<C-u>call incopen#incopen(v:count ? v:count : 1)<CR>
+nnoremap <silent> <Plug>(decopen)
+\ :<C-u>call incopen#decopen(v:count ? v:count : 1)<CR>
+nnoremap <silent> <Plug>(nextopen)
+\ :<C-u>call incopen#nextopen(v:count ? v:count : 1)<CR>
+nnoremap <silent> <Plug>(prevopen)
+\ :<C-u>call incopen#prevopen(v:count ? v:count : 1)<CR>
 
 let g:incopen_enable_wrap = get(g:, 'incopen_enable_wrap', 1)
