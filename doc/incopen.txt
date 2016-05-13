@@ -129,6 +129,9 @@ g:incopen_enable_wrap				*g:incopen_enable_wrap*
 ==============================================================================
 CHANGELOG					*incopen-changelog*
 
+0.2.0	2016-05-13
+	- Allow using keymaps with count.
+
 0.2.0	2015-08-04
 	- Implement |:Nextopen| and |:Prevopen|
 
