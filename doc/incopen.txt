@@ -34,8 +34,7 @@ INTERFACE					*incopen-interface*
 ------------------------------------------------------------------------------
 COMMANDS					*incopen-commands*
 
-						*:Incopen*
-:[count]Incopen
+:[count]Incopen					*:Incopen*
 		Open the incremented current path.
 		Default count is 1.
 >
@@ -46,8 +45,7 @@ COMMANDS					*incopen-commands*
 		" Open '/path/to/idx015.txt'
 		:5Incopen
 <
-							*:Decopen*
-:[count]Decopen
+:[count]Decopen					*:Decopen*
 		Open the decremented current path.
 		Default count is 1.
 >
@@ -58,8 +56,7 @@ COMMANDS					*incopen-commands*
 		" Open '/path/to/idx005.txt'
 		:5Decopen
 <
-							*:Nextopen*
-:[count]Nextopen
+:[count]Nextopen				*:Nextopen*
 		Open the next file in the same directory.
 		Default count is 1.
 >
@@ -71,8 +68,7 @@ COMMANDS					*incopen-commands*
 		" Open '/path/to/ghi.txt'
 		:2Nextopen
 <
-							*:Prevopen*
-:[count]Prevopen
+:[count]Prevopen				*:Prevopen*
 		Open the previous file in the same directory.
 		Default count is 1.
 >
