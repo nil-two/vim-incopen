@@ -1,7 +1,7 @@
 incopen
 =======
 
-![CI](https://github.com/nil2nekoni/vim-incopen/workflows/CI/badge.svg)
+![CI](https://github.com/nil-two/vim-incopen/workflows/CI/badge.svg)
 
 Open the incremented path.
 
